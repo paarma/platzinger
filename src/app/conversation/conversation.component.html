@@ -1,0 +1,89 @@
+<div id="conversationContainer" [ngClass]="{'shaker': shake}">
+    <div class="container pato25 marle10">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="avatarFrameOnLine">
+                    <img src="assets/img/generic_avatar.png" id="conversationAvatarPicture" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col">
+                <b>Juana</b>
+                <div>
+                    <span>Online</span>
+                    <br/>
+                    <span>
+                        < Escribe un mensaje personal>
+                    </span>
+                </div>
+                <hr />
+
+                <br />
+
+                <div id="historyBoxConversation">
+                    <!-- <div class="labelFriend">
+                        <b>Juana</b>
+                        <br/>
+                        <span class="burbujaConversationFriend">Hola</span>
+                    </div>
+
+                    <div class="marto15">
+                        <div class="labelOwner">
+                            <b>Tú</b>
+                            <br/>
+                            <span class="burbujaConversationOwner">Holaaaaaaaa</span>
+                        </div>
+                    </div> -->
+
+                    <div class="messageGroup" *ngFor="let m of conversation">
+                        <b>{{ getUserNickById(m.sender) }}</b> dice: <br/>
+                        <span class="burbujaConversationFriend">{{m.text}}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pato25 marle10">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="avatarFrameOnLine">
+                    <img src="assets/img/generic_avatar.png" id="conversationAvatarPicture" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col">
+                <!-- El evento "(keyUp.enter)" se ejecuta cuando se pulse y suelte la tecla enter -->
+                <textarea [(ngModel)]="textMessage" (keyUp.enter)="sendMessage()" rows="3" cols="30" class="form-control">
+                </textarea>
+
+                <!-- <div id="controlConversation">
+                    <a class="btn btn-primary">Enviar</a>
+                </div> -->
+
+                <div id="messageToolBar">
+                    <div class="item">
+                        <img src="assets/img/icons/regular_smile.gif" class="tool">
+                        <i name="caret-down"></i>
+                    </div>
+                    <div class="item">
+                        <img src="assets/img/icons/wink_smile.gif" class="tool">
+                        <i name="caret-down"></i>
+                    </div>
+                    <div class="item" (click)="sendZumbido()">
+                        <img src="assets/img/zumbido.png" class="tool">
+                    </div>
+                
+                    <a class="btn btn-primary btn-sm marri10" accept="image/*">Enviar</a>
+                    <label class="custom-file-upload">
+                        <input type="file">
+                        <i name="image"></i> Seleccionar Imagen
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

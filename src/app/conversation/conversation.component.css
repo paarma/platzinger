@@ -1,0 +1,62 @@
+#conversationContainer {
+    background-image: url("/assets/img/msnbg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#conversationAvatarPicture {
+    max-width: 90px;
+}
+
+#historyBoxConversation {
+    font-size: 14px;
+    overflow-y: scroll;
+    height: 170px;
+}
+
+#controlConversation {
+    text-align: right;
+}
+
+.burbujaConversationFriend {
+    text-align: left;
+    border-radius: 10px;
+    background-color: #DADADA;
+    padding: 5px;
+}
+
+.burbujaConversationOwner {
+    text-align: right;
+    border-radius: 10px;
+    background-color: #CDFFF3;
+    padding: 5px;
+}
+
+.labelFriend {
+    text-align: left;
+}
+
+.labelOwner {
+    text-align: right;
+}
+
+#messageToolBar {
+    border: 2px solid #cfd1d5;
+    padding: 5px;
+    border-top: 0px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e9ebf0+50,f1f3f8+87,fff9f9+100 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #e9ebf0 50%, #f1f3f8 87%, #fff9f9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#e9ebf0 50%,#f1f3f8 87%,#fff9f9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffffff 0%,#e9ebf0 50%,#f1f3f8 87%,#fff9f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fff9f9',GradientType=0 ); /* IE6-9 */
+  }
+  #messageToolBar > .item {
+    display: inline-block;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  #messageToolBar > .item > .tool {
+    height: 24px;
+    margin-right: 4px;
+  }
