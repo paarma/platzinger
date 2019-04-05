@@ -3,15 +3,16 @@
     <div class="homeHeadContainer">
       <div class="row">
         <div class="col-md-auto">
-          <div class="avatarFrameOnLine">
-            <img src="assets/img/generic_avatar.png" id="homeAvatarPicture">
+          <div class="avatarFrameOnLine" *ngIf="user">
+            <img [src]="user.avatar || 'assets/img/generic_avatar.png' " id="homeAvatarPicture">
           </div>
         </div>
 
         <div *ngIf="user" class="col">
           <b>{{user.nick}}</b>
           <div>
-            <span>{{user.status}}</span>
+            <span>Status:</span>
+            <img src="assets/img/logo_live_{{user.status}}.png" class="icon">
             <br/>
             <span>
               < Escribe un mensaje personal>

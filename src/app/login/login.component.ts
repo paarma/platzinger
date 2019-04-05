@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
         const user = {
           uid: data.user.uid,
           email: this.email,
-          nick: this.nick
+          nick: this.nick,
+          status: 'offline' //Por defecto al registrarse un nuevo usuario fijamos "offline" para mostrar el icono de status al ingrear al home
         };
 
         this.userService.createUser(user).then( (data2) => {
