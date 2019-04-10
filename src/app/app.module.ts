@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { RequestComponent } from './modals/request/request.component';
 import { ContactComponent } from './contact/contact.component';
+import { SearchByEmailPipe } from './pipes/search-by-email.pipe';
 
 
 //Se define constante la cual incluye las rutas de los diversos módulos
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     MenuComponent,
     SearchPipe,
     RequestComponent,
-    ContactComponent
+    ContactComponent,
+    SearchByEmailPipe
   ],
   imports: [
     BrowserModule,

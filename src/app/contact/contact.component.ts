@@ -9,21 +9,12 @@ import { User } from '../interfaces/user';
 })
 export class ContactComponent implements OnInit {
 
-  //Se usa para revibir parametros de un componente externo.
-  @Input() uid: string;
-
-  contact: User;
+  //Se usa para recibir parametros de un componente externo.
+  @Input() contact: User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    console.log(this.uid);
-
-    this.userService.getUserByUid(this.uid).valueChanges().subscribe(
-      (data: User) => {
-        this.contact = data;
-      }
-    );
   }
 
 }

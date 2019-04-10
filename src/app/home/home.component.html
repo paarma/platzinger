@@ -40,14 +40,13 @@
 
     <hr/>
     <!-- Se verifica si existe usuario y si tiene amigos -->
-    <b *ngIf="user && user.friends">Amigos ({{user.friends.length}} / {{user.friends.length}})</b>
+    <b *ngIf="user && friends">Amigos ({{friends.length}} / {{friends.length}})</b>
 
-    <div *ngIf="user && user.friends">
-      <!-- Se usa el pipe llamado "search" -->
+    <div *ngIf="user && friends">
       <div class="disblo marbo5">
-
+        <!-- Se usa el pipe llamado "searchByEmail" -->
         <!-- Se llama al componente de "contact" y se le pasa como parametro el idUsuario-->
-        <app-contact class="col-md-12" *ngFor="let user of user.friends" [uid]="user"></app-contact>
+        <app-contact class="col-md-12" *ngFor="let user of friends | searchByEmail: query" [contact]="user"></app-contact>
 
       </div>
     </div>

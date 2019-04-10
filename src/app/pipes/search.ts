@@ -23,7 +23,7 @@ export class SearchPipe implements PipeTransform {
         args = args.toLowerCase();
 
         // 'item' hace referencia al elemento de la lista (similar al alias del foreach)
-        //JSON.stringify: convierte de un valor javascrip a un objeto javacrip
+        //JSON.stringify: convierte de un valor javascript a un objeto javacript
         //includes retorna true si incluye la cadena de los argumentos en el contenido del item
         return value.filter((item => {
             return JSON.stringify(item).toLowerCase().includes(args);
