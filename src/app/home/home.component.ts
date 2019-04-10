@@ -72,7 +72,6 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.authenticationService.logOut().then(() => {
-      alert('Sesioon Cerrada');
       this.router.navigate(['login']);
     }).catch((error) => {
       console.log(error);
