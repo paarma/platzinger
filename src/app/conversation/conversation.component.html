@@ -2,8 +2,8 @@
     <div class="container pato25 marle10">
         <div class="row">
             <div class="col-md-2">
-                <div class="avatarFrameOnLine">
-                    <img src="assets/img/generic_avatar.png" id="conversationAvatarPicture" class="img-fluid">
+                <div class="avatarFrameOnLine" *ngIf="friend">
+                    <img [src]="friend.avatar || 'assets/img/generic_avatar.png' " id="conversationAvatarPicture" class="img-fluid">
                 </div>
             </div>
 
@@ -36,8 +36,8 @@
                     </div> -->
 
                     <div class="messageGroup" *ngFor="let m of conversation">
-                        <b>{{ getUserNickById(m.sender) }}</b> dice: <br/>
-                        <span class="burbujaConversationFriend">{{m.text}}</span>
+                        {{ getUserNickById(m.sender) }} dice: <br/>
+                        <span class="burbujaConversationFriend">* &nbsp; {{m.text}}</span>  <br/> <br/>
                     </div>
 
                 </div>
@@ -48,8 +48,8 @@
     <div class="container pato25 marle10">
         <div class="row">
             <div class="col-md-2">
-                <div class="avatarFrameOnLine">
-                    <img src="assets/img/generic_avatar.png" id="conversationAvatarPicture" class="img-fluid">
+                <div class="avatarFrameOnLine" *ngIf="user">
+                    <img [src]="user.avatar || 'assets/img/generic_avatar.png' " id="conversationAvatarPicture" class="img-fluid">
                 </div>
             </div>
 
