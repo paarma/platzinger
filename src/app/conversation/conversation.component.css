@@ -8,7 +8,7 @@
     max-width: 90px;
 }
 
-#historyBoxConversation {
+.historyBoxConversation {
     font-size: 14px;
     overflow-y: scroll;
     overflow :auto;
