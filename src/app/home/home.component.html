@@ -3,7 +3,11 @@
     <div class="homeHeadContainer">
       <div class="row">
         <div class="col-md-auto">
-          <div class="avatarFrameOnLine" *ngIf="user">
+          <div *ngIf="user" [ngClass]="{'avatarFrameOffline': true, 
+                                        'avatarFrameOnLine': user.status === 'online',
+                                        'avatarFrameAway': user.status === 'away',
+                                        'avatarFrameBusy': user.status === 'busy'
+                                        }">
             <img [src]="user.avatar || 'assets/img/generic_avatar.png' " id="homeAvatarPicture">
           </div>
         </div>

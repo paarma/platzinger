@@ -2,7 +2,11 @@
   <div class="container pato45">
     <div class="row">
       <div class="col-md-3">
-        <div class="avatarFrameOnLine" *ngIf="user">
+        <div *ngIf="user" [ngClass]="{'avatarFrameOffline': true, 
+                                      'avatarFrameOnLine': user.status === 'online',
+                                      'avatarFrameAway': user.status === 'away',
+                                      'avatarFrameBusy': user.status === 'busy'
+                                      }">
           <img [src]="croppedImage || user.avatar || 'assets/img/generic_avatar.png' " class="img-fluid">
         </div>
         <hr/>
