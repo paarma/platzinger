@@ -2,7 +2,11 @@
     <div class="container pato25 marle10">
         <div class="row">
             <div class="col-md-2">
-                <div class="avatarFrameOnLine" *ngIf="friend">
+                <div *ngIf="friend" [ngClass]="{'avatarFrameOffline': true, 
+                                    'avatarFrameOnLine': friend.status === 'online',
+                                    'avatarFrameAway': friend.status === 'away',
+                                    'avatarFrameBusy': friend.status === 'busy'
+                                    }">
                     <img [src]="friend.avatar || 'assets/img/generic_avatar.png' " id="conversationAvatarPicture" class="img-fluid">
                 </div>
             </div>
@@ -35,7 +39,7 @@
                         </div>
                     </div> -->
 
-                    <div class="messageGroup" *ngFor="let m of conversation">
+                    <div *ngFor="let m of conversation">
                         {{ getUserNickById(m.sender) }} dice: <br/>
                         <span class="burbujaConversationFriend">* &nbsp; {{m.text}}</span>  <br/> <br/>
                     </div>
@@ -48,7 +52,11 @@
     <div class="container pato25 marle10">
         <div class="row">
             <div class="col-md-2">
-                <div class="avatarFrameOnLine" *ngIf="user">
+                <div *ngIf="user" [ngClass]="{'avatarFrameOffline': true, 
+                                              'avatarFrameOnLine': user.status === 'online',
+                                              'avatarFrameAway': user.status === 'away',
+                                              'avatarFrameBusy': user.status === 'busy'
+                                            }">
                     <img [src]="user.avatar || 'assets/img/generic_avatar.png' " id="conversationAvatarPicture" class="img-fluid">
                 </div>
             </div>
