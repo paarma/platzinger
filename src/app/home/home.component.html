@@ -3,7 +3,7 @@
     <div class="homeHeadContainer">
       <div class="row">
         <div class="col-md-auto">
-          <div *ngIf="user" [ngClass]="{'avatarFrameOffline': true, 
+          <div *ngIf="user" class="avatarHome" [ngClass]="{'avatarFrameOffline': true, 
                                         'avatarFrameOnLine': user.status === 'online',
                                         'avatarFrameAway': user.status === 'away',
                                         'avatarFrameBusy': user.status === 'busy'
