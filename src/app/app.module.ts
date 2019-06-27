@@ -24,6 +24,8 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { RequestComponent } from './modals/request/request.component';
 import { ContactComponent } from './contact/contact.component';
 import { SearchByEmailPipe } from './pipes/search-by-email.pipe';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //Se define constante la cual incluye las rutas de los diversos módulos
@@ -61,7 +63,9 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     ImageCropperModule,
     NgbModule.forRoot(),
-    BootstrapModalModule.forRoot({container: document.body}) //Con este parametro le indicamos que el modal estará en el app.module (general en todas las vistas de la pp)
+    BootstrapModalModule.forRoot({container: document.body}), //Con este parametro le indicamos que el modal estará en el app.module (general en todas las vistas de la pp)
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
