@@ -26,6 +26,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SearchByEmailPipe } from './pipes/search-by-email.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationComponent } from './notification/notification.component';
 
 
 //Se define constante la cual incluye las rutas de los diversos módulos
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     SearchPipe,
     RequestComponent,
     ContactComponent,
-    SearchByEmailPipe
+    SearchByEmailPipe,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,12 @@ const appRoutes: Routes = [
     ImageCropperModule,
     NgbModule.forRoot(),
     BootstrapModalModule.forRoot({container: document.body}), //Con este parametro le indicamos que el modal estará en el app.module (general en todas las vistas de la pp)
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+      progressBar: true,
+    }),
     BrowserAnimationsModule
   ],
   providers: [],
