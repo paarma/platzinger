@@ -4,7 +4,7 @@ import { UserService } from '../services/user.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { NotificationComponent } from '../notification/notification.component';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   picture: any;
 
   constructor(private userService: UserService, private authenticationService: AuthenticationService,
-    private firebaseStorage: AngularFireStorage, private notification: NotificationComponent) {
+    private firebaseStorage: AngularFireStorage, private notificationService: NotificationService) {
     this.authenticationService.getStatus().subscribe((status) => {
       this.userService.getUserByUid(status.uid).valueChanges().subscribe(
         (data: User) => {
@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit {
     } else {
       this.userService.editUser(this.user).then(
         () => {
-          this.notification.success("Datos actualizados exitosamente");
+          this.notificationService.success("Datos actualizados exitosamente");
         }
       ).catch((error) => {
         alert("error al guardar");

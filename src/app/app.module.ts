@@ -26,7 +26,6 @@ import { ContactComponent } from './contact/contact.component';
 import { SearchByEmailPipe } from './pipes/search-by-email.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotificationComponent } from './notification/notification.component';
 
 
 //Se define constante la cual incluye las rutas de los diversos módulos
@@ -51,8 +50,7 @@ const appRoutes: Routes = [
     SearchPipe,
     RequestComponent,
     ContactComponent,
-    SearchByEmailPipe,
-    NotificationComponent
+    SearchByEmailPipe
   ],
   imports: [
     BrowserModule,
