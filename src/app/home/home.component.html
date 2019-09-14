@@ -19,9 +19,9 @@
             <img src="assets/img/logo_live_{{user.status}}.png" class="icon">
             <br/>
             <span>
-              < Escribe un mensaje personal>
-                <br/>
-                <a class="cursorPointer" (click)="logout()">LogOut</a>
+              {{user.personalMessage}}
+              <br/>
+              <a class="cursorPointer" (click)="logout()">LogOut</a>
             </span>
           </div>
         </div>

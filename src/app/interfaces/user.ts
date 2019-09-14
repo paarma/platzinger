@@ -12,4 +12,5 @@ export interface User {
 	status?: string;
 	avatar?: string;
 	friends?: any;
+	personalMessage?: string;
 }
