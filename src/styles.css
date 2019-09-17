@@ -170,3 +170,9 @@ input[type="file"] {
     margin-bottom: 0;
     margin-top: 0.5rem;
 }
+
+.ventana-modal {
+    background-image: url("/assets/img/msnbg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

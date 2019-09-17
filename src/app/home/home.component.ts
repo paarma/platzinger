@@ -5,6 +5,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { RequestsService } from '../services/requests.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private userService: UserService, private authenticationService: AuthenticationService,
     private router: Router, private modalService: NgbModal,
-    private requestsService: RequestsService) {
+    private requestsService: RequestsService,
+    private notificationService: NotificationService) {
 
     //valueChanges: Indica que cada vez que cambie el valor de getUser(),. se va ha ejecutar el contenido de valueChanges
     //data: User[]: Decimos que la data que retorna el servicio va ha ser un arreglo del tipo User.
@@ -97,11 +99,11 @@ export class HomeComponent implements OnInit {
 
     this.requestsService.createRequest(request).then(
       ()  => {
-        alert('Solicitud enviada');
+        this.notificationService.info('Solicitud enviada exitosamente');
       }
     ).catch((error) => {
-      alert('Error enviando solicitud');
-      console.log(error);
+        this.notificationService.error('Error enviando solicitud');
+        console.log(error);
     });
   }
 
