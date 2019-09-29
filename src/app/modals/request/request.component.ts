@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService, DialogComponent } from 'ng2-bootstrap-modal';
 import { UserService } from '../../services/user.service';
 import { RequestsService } from '../../services/requests.service';
+import { User } from 'firebase';
+import { NotificationService } from '../../services/notification.service';
 
 //Se define una interfaz llamada PrompModel
 export interface PrompModel {
@@ -14,16 +16,28 @@ export interface PrompModel {
   templateUrl: './request.component.html',
   styleUrls: ['./request.component.css']
 })
-export class RequestComponent extends DialogComponent<PrompModel, any> implements PrompModel {
+export class RequestComponent extends DialogComponent<PrompModel, any> implements PrompModel, OnInit {
 
   scope: any; //Tiene los datos del usuario logueado y demas info
   currentRequest: any; //Tiene la informacion del usuario que envía la solicitud de amistad
   shouldAdd: string = 'yes';
+  frindSendRequest: User;
 
   constructor(public dialogService: DialogService, private userService: UserService,
-    private requestsService: RequestsService) {
+    private requestsService: RequestsService, private notificationService: NotificationService) {
     //"transforma este componente en su forma de modal"
     super(dialogService);
+  }
+
+  ngOnInit(){
+    this.userService.getUserByUid(this.currentRequest.sender).valueChanges().subscribe(
+      (data: User) => {
+        this.frindSendRequest = data;
+      }, (error) => {
+        this.notificationService.error("Error obteniendo solicitud de amistad");
+        console.log(error);
+      }
+    );
   }
 
   accept(){
